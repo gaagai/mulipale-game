@@ -1,0 +1,195 @@
+/**********************
+****    GENERAL   ****
+*********************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  font-family: "Heebo", sans-serif;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 5rem;
+  color: white;
+  /* background: #63e078; */
+  animation: bgColors 16s infinite;
+  transition: background 0.7s linear;
+}
+#board {
+  display: flex;
+}
+
+#board > div {
+  margin: 0 0.5rem;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  padding: 3rem;
+  border: 6px solid #fff;
+  background-color: coral;
+  margin-bottom: 4rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+}
+.container.currect {
+  border: 6px dashed lawngreen;
+  pointer-events: none;
+}
+.container.wrong {
+  border: 6px dashed crimson;
+  pointer-events: none;
+}
+::selection {
+  background-color: rgba(255, 127, 80, 0.76);
+}
+.title {
+  font-size: 5rem;
+  text-align: center;
+  border-bottom: 2px solid;
+  margin: 0;
+}
+input[type="number"] {
+  width: 118px;
+  font-size: 4rem;
+  color: #63e078;
+  padding: 0 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+input[type="number"]:focus {
+  outline: none !important;
+  border: 3px solid #63e078;
+}
+.container.currect input[type="number"] {
+  background-color: lawngreen;
+  color: #fff;
+}
+.container.wrong input[type="number"] {
+  background-color: crimson;
+  color: #fff;
+}
+
+.digit {
+  transform: translateY(-160%);
+  animation: slidein forwards 0.7s;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+}
+.spacer {
+  display: flex;
+  min-width: 70%;
+  justify-content: space-between;
+  align-self: center;
+  margin-top: 1.5rem;
+}
+button {
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  background: #2d2d2d;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: 2px solid white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s linear;
+}
+.count-down {
+  visibility: hidden;
+  font-family: "Orbitron", sans-serif;
+}
+.visible {
+  visibility: visible;
+}
+button:focus {
+  box-shadow: none;
+}
+@keyframes slidein {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.score > h3 {
+  margin: 0;
+}
+
+/* // Media queries */
+@media (max-width: 450px) {
+  body {
+    font-size: 2.5rem;
+  }
+  input[type="number"] {
+    width: 130px;
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 4rem;
+    text-align: center;
+    border-bottom: 2px solid;
+    margin-top: 0;
+  }
+  div#top {
+    text-align: center;
+  }
+  .container {
+    width: 95%;
+    height: auto;
+  }
+  input[type="number"]:focus {
+    outline: none !important;
+    border: none;
+  }
+}
+
+@keyframes bgColors {
+  0% {
+    background: #63e078;
+  }
+  25% {
+    background: #63a4e0;
+  }
+  50% {
+    background: #9d63e0;
+  }
+  75% {
+    background: #e063a6;
+  }
+  100% {
+    background: #63e078;
+  }
+}
